@@ -1,0 +1,51 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "e210c76d34b6002b29cb",
+  "position": {
+    "x": 40,
+    "y": 18,
+    "z": 0,
+    "height": 91,
+    "width": 1840,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "WHAT SITS BELOW THE WATER LINE ON ADELAIDE'S COAST",
+                    "textStyle": {
+                      "fontSize": "24pt",
+                      "color": "#163c6e",
+                      "fontFamily": "Segoe UI Semibold",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Glenelg to Outer Harbor. Ground below each level, connected to the sea. Grounded levels from published tides and the SA Coast Protection Board's allowances for sea level rise.",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "color": "#5b6573",
+                      "fontFamily": "Segoe UI"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

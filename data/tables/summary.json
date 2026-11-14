@@ -1,0 +1,115 @@
+{
+ "question": "What sits below the water line on Adelaide’s coast?",
+ "area": {
+  "south": -34.995,
+  "west": 138.44,
+  "north": -34.765,
+  "east": 138.57
+ },
+ "grid": {
+  "width": 3031,
+  "height": 6534,
+  "cell_m": 3.92,
+  "bounds": [
+   [
+    -34.995,
+    138.44
+   ],
+   [
+    -34.765,
+    138.57
+   ]
+  ],
+  "zoom": 14,
+  "step_m": 0.125,
+  "seeds": 10093
+ },
+ "water": {
+  "mode": "sea",
+  "from": "sea",
+  "edges": [
+   "n",
+   "w",
+   "s"
+  ],
+  "sea": 0,
+  "connect": 8
+ },
+ "totals": {
+  "addresses": 166253,
+  "residential": 152486,
+  "residents": 278212,
+  "roads_km": 2348.1,
+  "land_ha_above_0": 17405
+ },
+ "bathtub_comparison": [
+  {
+   "level": 1.4,
+   "land_ha": 2538,
+   "residential": 1173,
+   "residents": 2703
+  },
+  {
+   "level": 1.7,
+   "land_ha": 2878,
+   "residential": 2726,
+   "residents": 6082
+  },
+  {
+   "level": 2.4,
+   "land_ha": 4706,
+   "residential": 15909,
+   "residents": 29428
+  },
+  {
+   "level": 2.7,
+   "land_ha": 5460,
+   "residential": 20721,
+   "residents": 38040
+  },
+  {
+   "level": 3.4,
+   "land_ha": 7727,
+   "residential": 35652,
+   "residents": 64458
+  }
+ ],
+ "postcodes": [
+  "5007",
+  "5008",
+  "5009",
+  "5010",
+  "5011",
+  "5012",
+  "5013",
+  "5014",
+  "5015",
+  "5016",
+  "5017",
+  "5018",
+  "5019",
+  "5020",
+  "5021",
+  "5022",
+  "5023",
+  "5024",
+  "5025",
+  "5031",
+  "5032",
+  "5033",
+  "5037",
+  "5038",
+  "5039",
+  "5040",
+  "5042",
+  "5043",
+  "5044",
+  "5045",
+  "5094",
+  "5110",
+  "5950"
+ ],
+ "gnaf_release": "2026-08",
+ "osm_timestamp": "2026-11-14T12:26:07Z",
+ "note": "A height-based picture, not a flood or coastal model. It shows ground below a level of still water and leaves out tides, storm surge, waves, erosion, sea walls and levees the heights do not show, and drainage. How close it is depends on the height data. Heights: Plotlay’s terrain tiles: in Australia Geoscience Australia’s 5 m LiDAR DEM (bare earth, surveys from 2001 to 2015) via Mapterhorn, which keeps its heights as they are, in metres AHD (Australian Height Datum); vertical accuracy about ±0.3 m at best: Geoscience Australia gives the LiDAR capture standard (at least 0.30 m, 95% confidence) rather than a measured accuracy for its 5 m DEM, and the tiles round heights to 0.125 m."
+}

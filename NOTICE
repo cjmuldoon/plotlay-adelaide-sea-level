@@ -1,0 +1,59 @@
+What sits below the water line on Adelaide's coast?
+Copyright 2026 Craig Muldoon. Made with Plotlay (https://www.getplotlay.com).
+
+This repository contains code, data we made, and data from the sources below.
+
+CODE
+  The notebook, scripts/rebuild_levels.py and the Power BI project (its Power Query, DAX and report files) are
+  licensed under the MIT licence (LICENSE).
+
+DATA WE MADE
+  The tables in data/tables/ (except levels_roads.csv, below), the shapes in data/geometry/ and the visuals are
+  licensed under Creative Commons Attribution 4.0 International (LICENSE-DATA). Please credit: "What sits below the
+  water line on Adelaide's coast: Plotlay (getplotlay.com), from Geoscience Australia, G-NAF and ABS data". They are
+  made from the sources below.
+
+  data/tables/levels_roads.csv holds road lengths worked out from OpenStreetMap and is available under the Open
+  Database Licence 1.0 (https://opendatacommons.org/licenses/odbl/1-0/), as OpenStreetMap's licence requires.
+
+UPSTREAM SOURCES
+
+  Geoscience Australia: Digital Elevation Model (DEM) of Australia derived from LiDAR 5 Metre Grid (2015,
+  https://doi.org/10.26186/89644). © Commonwealth of Australia (Geoscience Australia), Creative Commons Attribution
+  4.0. Read through Mapterhorn's terrain tiles (https://mapterhorn.com, attribution at mapterhorn.com/attribution) as
+  copied by Plotlay. Changes: resampled to Web Mercator and rounded to 0.125 m (zoom 14) and 0.25 m (zoom 13) by
+  Mapterhorn; cut to the study area and written as GeoTIFF by Plotlay (data/heights/).
+
+  G-NAF (Geocoded National Address File), August 2026 release. Incorporates or developed using G-NAF © Geoscape
+  Australia licensed by the Commonwealth of Australia under the Open Geo-coded National Address File (G-NAF) End
+  User Licence Agreement (https://data.gov.au/dataset/geocoded-national-address-file-g-naf). The licence grants the
+  rights of CC BY 4.0 with one restriction: G-NAF must not be used to generate an address or a compilation of
+  addresses for the sending of mail unless each address has been verified against another source.
+  Changes: addresses counted by level and suburb; no address list is published.
+
+  Australian Bureau of Statistics: Australian Statistical Geography Standard (ASGS) Edition 3 mesh blocks and
+  suburbs and localities (2021); Census of Population and Housing 2021, Mesh Block Counts. Creative Commons
+  Attribution 4.0. Based on Australian Bureau of Statistics data.
+  Changes: mesh blocks simplified by 2.5 m and joined to their counts; residents shared by area under each level.
+
+  Government of South Australia, Department for Housing and Urban Development: Land Use Generalised 2025
+  (data.sa.gov.au), Creative Commons Attribution 4.0. Changes: cut to the study area; area under each level by class
+  (data/tables/levels_landuse.csv).
+
+  OpenStreetMap roads, © OpenStreetMap contributors, Open Database Licence 1.0 (see levels_roads.csv above).
+
+  The levels come from published figures: the SA Coast Protection Board's Policy Document (revised October 2022),
+  the highest astronomical tide at Outer Harbor and its chart datum (Bureau of Meteorology; Tonkin Consulting 2014;
+  Department for Environment and Heritage 2005), listed with links in data/tables/sources.csv.
+
+  The map pictures in visuals/ are drawn over Plotlay's Quiet base map, made from OpenStreetMap: © OpenStreetMap
+  contributors (ODbL), tiles Protomaps. They are produced works and credit it.
+
+This is independent work using open data, not endorsed by Geoscience Australia, Geoscape Australia, the ABS, the
+Government of South Australia or the Coast Protection Board. It is a height-based picture, not a flood or coastal
+model, and not advice about any property.
+
+POWER BI MAP CONTEXT
+  The Shape Map in powerbi/ draws context round the suburbs, generalised and cut to the map frame: suburbs and
+  localities with the water mesh blocks cut out (Australian Bureau of Statistics, ASGS Edition 3, Suburbs and
+  Localities 2021 and Mesh Blocks 2021, CC BY 4.0). Water is the map background showing where no land is drawn.

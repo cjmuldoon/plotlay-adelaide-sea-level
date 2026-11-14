@@ -1,0 +1,118 @@
+table Levels
+	lineageTag: 91aedca0-0492-a5fb-a2c2-82abec5626f3
+
+	/// Land (ground above 0 m AHD) below the level and reachable from the sea
+	measure 'Land under water (ha)' = CALCULATE ( SUM ( Levels[land_ha] ), Levels[kind] = "grounded" )
+		formatString: #,0
+		lineageTag: 12c5a8af-67d9-22a9-e49f-02b1798feba3
+
+	/// G-NAF principal addresses in ABS Residential mesh blocks whose ground is below the level
+	measure 'Residential addresses below' = CALCULATE ( SUM ( Levels[residential_addresses] ), Levels[kind] = "grounded" )
+		formatString: #,0
+		lineageTag: 124b831e-5c6f-81a2-4e8d-365476ad52a3
+
+	/// 2021 Census residents of each mesh block, shared by the part of its ground below the level
+	measure 'Residents below' = SUM ( Levels[residents_2021] )
+		formatString: #,0
+		lineageTag: 156ca6bd-dca2-df4a-d6b8-9e876a72b7a9
+
+	column kind
+		dataType: string
+		lineageTag: 6f742992-0f7c-dec6-daca-eee64921b263
+		summarizeBy: none
+		sourceColumn: kind
+
+		annotation SummarizationSetBy = Automatic
+
+	column level_m_ahd
+		dataType: double
+		formatString: 0.0
+		lineageTag: 175ed697-d77d-287b-760b-4e2c39991b06
+		summarizeBy: none
+		sourceColumn: level_m_ahd
+
+		annotation SummarizationSetBy = Automatic
+
+	column label
+		dataType: string
+		lineageTag: 5baf2c66-d83f-459a-0710-8e064d821878
+		summarizeBy: none
+		sourceColumn: label
+
+		annotation SummarizationSetBy = Automatic
+
+	column land_ha
+		dataType: int64
+		formatString: #,0
+		lineageTag: 1dc6269d-b94d-ba9d-6e8c-5c9dfdf3b19d
+		summarizeBy: none
+		sourceColumn: land_ha
+
+		annotation SummarizationSetBy = Automatic
+
+	column mean_depth_m
+		dataType: double
+		formatString: 0.00
+		lineageTag: 2e58af52-f704-b248-6994-28f91e9a6da3
+		summarizeBy: none
+		sourceColumn: mean_depth_m
+
+		annotation SummarizationSetBy = Automatic
+
+	column max_depth_m
+		dataType: double
+		formatString: 0.00
+		lineageTag: 79eafbed-76e1-c91a-50cc-2408460f078e
+		summarizeBy: none
+		sourceColumn: max_depth_m
+
+		annotation SummarizationSetBy = Automatic
+
+	column addresses
+		dataType: int64
+		formatString: #,0
+		lineageTag: fdba7149-dac0-08d2-aecf-65bc4601aed7
+		summarizeBy: none
+		sourceColumn: addresses
+
+		annotation SummarizationSetBy = Automatic
+
+	column residential_addresses
+		dataType: int64
+		formatString: #,0
+		lineageTag: 916698f7-654c-ef21-a896-70657a347f27
+		summarizeBy: none
+		sourceColumn: residential_addresses
+
+		annotation SummarizationSetBy = Automatic
+
+	column residents_2021
+		dataType: int64
+		formatString: #,0
+		lineageTag: b1080f70-3597-3895-8bbe-df0d8d9830ba
+		summarizeBy: none
+		sourceColumn: residents_2021
+
+		annotation SummarizationSetBy = Automatic
+
+	column dwellings_2021
+		dataType: int64
+		formatString: #,0
+		lineageTag: 4046ed65-8d18-799f-d6c7-d9e54006b5aa
+		summarizeBy: none
+		sourceColumn: dwellings_2021
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Levels = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(GetFile("tables/levels.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Kept = Table.SelectColumns(Promoted, {"kind", "level_m_ahd", "label", "land_ha", "mean_depth_m", "max_depth_m", "addresses", "residential_addresses", "residents_2021", "dwellings_2021"}),
+				    Typed = Table.TransformColumnTypes(Kept, {{"kind", type text}, {"level_m_ahd", type number}, {"label", type text}, {"land_ha", Int64.Type}, {"mean_depth_m", type number}, {"max_depth_m", type number}, {"addresses", Int64.Type}, {"residential_addresses", Int64.Type}, {"residents_2021", Int64.Type}, {"dwellings_2021", Int64.Type}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table

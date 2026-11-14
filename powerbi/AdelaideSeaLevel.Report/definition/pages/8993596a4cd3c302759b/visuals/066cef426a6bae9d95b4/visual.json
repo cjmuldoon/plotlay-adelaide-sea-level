@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "066cef426a6bae9d95b4",
+  "position": {
+    "x": 40,
+    "y": 1020,
+    "z": 99,
+    "height": 58,
+    "width": 1840,
+    "tabOrder": 99
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "A height-based picture, not a flood or coastal model: no tides, storm surge, waves, erosion, defences or drainage. Heights: Geoscience Australia 5 m LiDAR DEM via Mapterhorn and Plotlay, CC BY 4.0, metres AHD, about ±0.3 m at best. G-NAF August 2026 © Geoscape Australia, Open G-NAF EULA. ABS ASGS Edition 3 and 2021 Census, CC BY 4.0. Made with Plotlay (getplotlay.com).",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#5b6573",
+                      "fontFamily": "Segoe UI"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
